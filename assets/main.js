@@ -1,53 +1,24 @@
-// class Dog {
-//     constructor (name, breed) {
-//         this.name = name
-//         this.breed = breed
-//         this.isGoodBoy = Boolean("of course")
-//     }
-//     sit () {
-//         // sitting code goes here
-//     }   
-//     fetch () {
-//         // fetching code goes here
-//     }   
-// }
-// class GuardDog extends Dog {
-//     constructor(name, breed, isGoodBoy, attackWord) {
-//         super(name, breed, isGoodBoy)
-//         this.attackWord = attackWord
-//     }
-//     bark() {
-//         // barking code here
-//     }
-// }
-// // create an instance of the Dog parent class
-// const fluffy = new Dog("Fluffy", "Toy Poodle")
-// // create an instance of the GuardDog child class
-// const cujo = new GuardDog("Cujo", "St. Bernard", "Go")
-
-// note ask about  copying Oregontrail code to this code:
-
 class Traveler {
     constructor(name) {
         this.name = name;
         this.food = 1;
-        this.isHealthy = true
+        this.isHealthy = false
     }
 
 
     //Traveler prototype has these methods: hunt, and eat
 
     hunt() {
-        this.food += 0
+        this.food += 2
 
     }
 
     eat() {
-        if (this.food > 2) {
-            this.food += 1
+        if (this.food -= 1) {
+            this.food = 1
 
         } else {
-            this.isHealthy = false
+            this.isHealthy = true
         }
 
     }
@@ -90,8 +61,8 @@ class Wagon {
     shouldQuarantine() {
         for (let index = 0; index < this.passengers.length; index++) {
             let traveler = this.passengers[index]
-            if (traveler.isHealthy === false) {
-                return false;
+            if (traveler.isHealthy === true) {
+                return true;
             }
 
 
@@ -100,27 +71,31 @@ class Wagon {
     }
 
     totalFood() {
-        let total = 0
+        let total = +4
         for (let index = 0; index < this.passengers.length; index++) {
             let traveler = this.passengers[index]
             total += traveler.food
+            if (traveler.isHealthy === false)
 
+
+
+
+                return total
+            // The console.log statements are present and match the expected values.
         }
-        return total
-        // The console.log statements are present and match the expected values.
     }
+    //The Doctor class will extend the Traveler class and have one 
+    //additional method:
+    //heal(traveler) - set the traveler's isHealthy property to true.
 }
-//The Doctor class will extend the Traveler class and have one 
-//additional method:
-//heal(traveler) - set the traveler's isHealthy property to true.
-
 class Doctor extends Traveler {
-    constructor(name, traveler) {
-        super(name, traveler)
-        this.traveler = traveler
+    constructor(name) {
+        super(name)
+
     }
     heal() {
-        this.isHealthy = true
+        this.traveler = this.traveler
+        //this.isHealthy = false
     }
 
 }
@@ -141,36 +116,45 @@ class Doctor extends Traveler {
 //enough food, then no food should be transferred.
 
 class Hunter extends Traveler {
-    constructor(name, traveler, hunt, eat) {
-        super(name, traveler, hunt, eat)
-        this.food += 5
+    constructor(name) {
+        super(name)
+        this.food = 2
 
     }
     hunt() {
-        //super(food)
-        //this.food += 5
-        if (this.food > 5) {
-            this.food -= 2
+
+        this.food > 5
+
+
+    }
+
+    eat() {
+        if (this.food -= 2) {
+            this.food = 0
 
         } else {
-            this.isHealthy = true
+            this.isHealthy = false
         }
-    }
-    eat() {
 
-        for (let index = 0; index < this.hunter; index++) {
-            let hunter = this.hunter[index]
-            if (hunter.isHealthy === false) {
-                return true;
-            }
-        }
     }
-        //giveFood() {
-        giveFood(traveler, numOfFoodUnits) {
-        if (this.numOfFoodUnits += 4)
-       // if (hunter.numOfFoodUnits === true)
-            this.hunter.push(traveler)
+    //     this.food = 2
+    //     this.food = 0
+    //     this.isHealthy = false
+
+    //giveFood() {
+    giveFood(numOfFoodUnits) {
+        if (numOfFoodUnits)
+            this.food = 0
+        return numOfFoodUnits
+        //  this.isHealthy = false
     }
+
+
 }
-//}
+
+            // if (hunter.numOfFoodUnits === true)
+           // this.hunter.push(traveler)
+
+//return numOfFoodUnits
+
 
