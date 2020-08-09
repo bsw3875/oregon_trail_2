@@ -2,7 +2,7 @@ class Traveler {
     constructor(name) {
         this.name = name;
         this.food = 1;
-        this.isHealthy = false
+        this.isHealthy = true
     }
 
 
@@ -14,11 +14,11 @@ class Traveler {
     }
 
     eat() {
-        if (this.food -= 1) {
-            this.food = 1
+        if (this.food > 0) {
+            this.food -= 1
 
         } else {
-            this.isHealthy = true
+            this.isHealthy = false
         }
 
     }
@@ -61,7 +61,7 @@ class Wagon {
     shouldQuarantine() {
         for (let index = 0; index < this.passengers.length; index++) {
             let traveler = this.passengers[index]
-            if (traveler.isHealthy === true) {
+            if (traveler.isHealthy === false) {
                 return true;
             }
 
@@ -71,18 +71,18 @@ class Wagon {
     }
 
     totalFood() {
-        let total = +4
+        let total = 0
         for (let index = 0; index < this.passengers.length; index++) {
             let traveler = this.passengers[index]
             total += traveler.food
-            if (traveler.isHealthy === false)
 
 
 
 
-                return total
-            // The console.log statements are present and match the expected values.
         }
+        return total
+        // The console.log statements are present and match the expected values.
+
     }
     //The Doctor class will extend the Traveler class and have one 
     //additional method:
@@ -93,9 +93,8 @@ class Doctor extends Traveler {
         super(name)
 
     }
-    heal() {
-        this.traveler = this.traveler
-        //this.isHealthy = false
+    heal(traveler) {
+        traveler.isHealthy = true
     }
 
 }
@@ -107,13 +106,8 @@ class Doctor extends Traveler {
 //hunt() - Increase the hunter's food by 5. (A normal traveler 
 //gains only 2.)
 
-//eat() - Consumes 2 units of food. If the hunter doesn't have 2 
-//food when they are instructed to eat, they eat as much as they
-//can (0 or 1 unit), but the hunter is no longer healthy.
 
-//giveFood(traveler, numOfFoodUnits) - Transfers numOfFoodUnits
-//from the hunter to the traveler. If the hunter doesn't have
-//enough food, then no food should be transferred.
+
 
 class Hunter extends Traveler {
     constructor(name) {
@@ -123,38 +117,51 @@ class Hunter extends Traveler {
     }
     hunt() {
 
-        this.food > 5
+        this.food += 5
 
 
     }
 
+    //eat() - Consumes 2 units of food. If the hunter doesn't have 2 
+    //food when they are instructed to eat, they eat as much as they
+    //can (0 or 1 unit), but the hunter is no longer healthy.
+
+
+
     eat() {
-        if (this.food -= 2) {
-            this.food = 0
+        if (this.food > 2) {
+
 
         } else {
-            this.isHealthy = false
+            this.food < 2
+
         }
 
     }
-    //     this.food = 2
-    //     this.food = 0
-    //     this.isHealthy = false
+
+
+    //giveFood(traveler, numOfFoodUnits) - Transfers numOfFoodUnits
+    //from the hunter to the traveler. If the hunter doesn't have
+    //enough food, then no food should be transferred.
+
 
     //giveFood() {
-    giveFood(numOfFoodUnits) {
-        if (numOfFoodUnits)
-            this.food = 0
-        return numOfFoodUnits
-        //  this.isHealthy = false
-    }
+    giveFood(traveler, numOfFoodUnits) {
 
+        //  if (numOfFoodUnits) {
+        //      this.food > 2
+
+        if (this.food > 0) {
+            this.food -= 3
+        } else {
+            this.food < 2;
+
+        }
+
+
+    }
 
 }
 
-            // if (hunter.numOfFoodUnits === true)
-           // this.hunter.push(traveler)
-
-//return numOfFoodUnits
 
 
